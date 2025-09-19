@@ -1,6 +1,9 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+// Only show errors in development
+if (getenv('VERCEL_ENV') !== 'production') {
+    error_reporting(E_ALL);
+    ini_set('display_errors', 1);
+}
 
 require '_config.php';
 session_start();
@@ -72,9 +75,9 @@ if (isset($data['results']['total'])) {
     <link rel="stylesheet" href="<?= $websiteUrl ?>/src/assets/css/styles.min.css?v=<?= $version ?>">
     <link rel="apple-touch-icon" href="<?= $websiteUrl ?>/public/logo/favicon.png?v=<?= $version ?>" />
     <link rel="shortcut icon" href="<?= $websiteUrl ?>/public/logo/favicon.png?v=<?= $version ?>" type="image/x-icon" />
-    <link rel="apple-touch-icon" sizes="180x180" href="<?= $websiteUrl ?>/public/logo/apple-touch-icon.pngv=<?= $version ?>">
-    <link rel="icon" type="image/png" sizes="32x32" href="<?= $websiteUrl ?>/public/logo/favicon-32x32.pngv=<?= $version ?>">
-    <link rel="icon" type="image/png" sizes="16x16" href="<?= $websiteUrl ?>/public/logo/favicon-16x16.pngv=<?= $version ?>">
+    <link rel="apple-touch-icon" sizes="180x180" href="<?= $websiteUrl ?>/public/logo/apple-touch-icon.png?v=<?= $version ?>">
+    <link rel="icon" type="image/png" sizes="32x32" href="<?= $websiteUrl ?>/public/logo/favicon-32x32.png?v=<?= $version ?>">
+    <link rel="icon" type="image/png" sizes="16x16" href="<?= $websiteUrl ?>/public/logo/favicon-16x16.png?v=<?= $version ?>">
     <link rel="mask-icon" href="<?= $websiteUrl ?>/public/logo/safari-pinned-tab.svg" color="#5bbad5">
     <link rel="icon" sizes="192x192" href="<?= $websiteUrl ?>/public/logo/touch-icon-192x192.png?v=<?= $version ?>">
 
@@ -245,13 +248,13 @@ if (isset($data['results']['total'])) {
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
         <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
-        <script type="text/javascript" src="<?= $websiteUrl ?>/src/assets/js/comman.jsv=<?= $version ?>"></script>
-        <script type="text/javascript" src="<?= $websiteUrl ?>/src/assets/js/app.jsv=<?= $version ?>"></script>
-        <link rel="stylesheet" href="<?= $websiteUrl ?>/src/assets/css/jquery-ui.cssv=<?= $version ?>">
-        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.jsv=<?= $version ?>"></script>
-        <script type="text/javascript" src="<?= $websiteUrl ?>/src/assets/js/function.jsv=<?= $version ?>"></script>
+        <script type="text/javascript" src="<?= $websiteUrl ?>/src/assets/js/comman.js?v=<?= $version ?>"></script>
+        <script type="text/javascript" src="<?= $websiteUrl ?>/src/assets/js/app.js?v=<?= $version ?>"></script>
+        <link rel="stylesheet" href="<?= $websiteUrl ?>/src/assets/css/jquery-ui.css?v=<?= $version ?>">
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js?v=<?= $version ?>"></script>
+        <script type="text/javascript" src="<?= $websiteUrl ?>/src/assets/js/function.js?v=<?= $version ?>"></script>
         
-        <script type="text/javascript" src="<?= $websiteUrl ?>/src/assets/js/app.min.js?v=1.4v=<?= $version ?>"></script>
+        <script type="text/javascript" src="<?= $websiteUrl ?>/src/assets/js/app.min.js?v=<?= $version ?>"></script>
 
         <script>
         let currentPage = <?= $currentPage ?>;

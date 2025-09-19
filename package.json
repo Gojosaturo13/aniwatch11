@@ -1,0 +1,16 @@
+{
+  "name": "anipaca",
+  "version": "2.1.0",
+  "description": "Anipaca - Watch High Quality Anime Online",
+  "scripts": {
+    "deploy": "vercel --prod",
+    "dev": "vercel dev"
+  },
+  "keywords": ["anime", "streaming", "php", "vercel"],
+  "author": "PacaHat",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PacaHat/Anipaca"
+  }
+}

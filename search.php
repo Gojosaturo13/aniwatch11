@@ -1,7 +1,10 @@
 <?php
 
-//error_reporting(E_ALL);
-//ini_set('display_errors', 1);
+// Only show errors in development
+if (getenv('VERCEL_ENV') !== 'production') {
+    error_reporting(E_ALL);
+    ini_set('display_errors', 1);
+}
 
 require '_config.php';
 session_start();

@@ -1,12 +1,22 @@
 
 <?php 
 
-$conn = new mysqli("HOSTNAME", "USERNAME", "PASSWORD", "DATABASE"); //just like $conn = new mysqli("localhost", "root", "", "anipaca");
+// Database configuration - Use environment variables for security
+$db_host = getenv('DB_HOST') ?: 'HOSTNAME';
+$db_user = getenv('DB_USER') ?: 'USERNAME';
+$db_pass = getenv('DB_PASS') ?: 'PASSWORD';
+$db_name = getenv('DB_NAME') ?: 'DATABASE';
 
+$conn = new mysqli($db_host, $db_user, $db_pass, $db_name);
 
 if ($conn->connect_error) {
     error_log("Database connection failed: " . $conn->connect_error);
-    echo("Database connection failed.");
+    // Don't show detailed error in production
+    if (getenv('VERCEL_ENV') !== 'production') {
+        echo("Database connection failed: " . $conn->connect_error);
+    } else {
+        echo("Service temporarily unavailable.");
+    }
 }
 
 $websiteTitle = "AniPaca";
@@ -22,12 +32,15 @@ $github = "https://github.com/PacaHat";
 $telegram = "https://t.me/anipaca";
 $instagram = "https://www.instagram.com/pxr15_"; 
 
-// all the api you need
-$zpi = "https://your-hosted-api.com/api"; //https://github.com/PacaHat/zen-api
+// all the api you need - Use environment variables for flexibility
+$zpi = getenv('ZEN_API_URL') ?: "https://zen-api-brown.vercel.app"; //https://github.com/PacaHat/zen-api
 $proxy = $websiteUrl . "/src/ajax/proxy.php?url=";
 
-//If you want faster loading speed just put // before the first proxy and remove slashes from this one 
-//$proxy = "https://your-hosted-proxy.com/proxy?url="; //https://github.com/PacaHat/shrina-proxy
+//If you want faster loading speed use external proxy
+$external_proxy = getenv('PROXY_URL') ?: "https://m3u8proxy.vercel.app/proxy?url="; //https://github.com/PacaHat/shrina-proxy
+if (getenv('USE_EXTERNAL_PROXY') === 'true') {
+    $proxy = $external_proxy;
+}
 
 
 $banner = $websiteUrl . "/public/images/banner.png";

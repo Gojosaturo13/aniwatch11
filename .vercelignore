@@ -1,0 +1,36 @@
+# Database files
+database.sql
+db-init.php
+
+# Development files
+*.log
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Cache and temporary files
+*.cache
+tmp/
+temp/
+
+# Documentation
+README.md
+readme.md
+NOTICE.MD
+contribution/
+
+# Git files
+.git/
+.gitignore
