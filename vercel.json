@@ -1,25 +1,11 @@
 {
   "version": 2,
-  "functions": {
-    "*.php": {
-      "runtime": "@vercel/php@0.7.0"
-    }
-  },
   "rewrites": [
     {
       "source": "/(.*)",
       "destination": "/router.php"
     }
   ],
-  "env": {
-    "DB_HOST": "@db_host",
-    "DB_USER": "@db_user", 
-    "DB_PASS": "@db_pass",
-    "DB_NAME": "@db_name",
-    "ZEN_API_URL": "@zen_api_url",
-    "PROXY_URL": "@proxy_url",
-    "USE_EXTERNAL_PROXY": "@use_external_proxy"
-  },
   "build": {
     "env": {
       "VERCEL_ENV": "production"
